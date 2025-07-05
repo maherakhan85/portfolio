@@ -1,0 +1,237 @@
+.project-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333333;
+}
+
+.project-details h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #666666;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.project-details section {
+  margin-bottom: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.project-details section:hover {
+  transform: translateY(-2px);
+}
+
+.project-details h2 {
+  font-size: 1.8rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-details h2::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 24px;
+  background: #666666;
+  border-radius: 2px;
+}
+
+.project-overview p,
+.challenges p,
+.solutions p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333333;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.project-features li {
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border-left: 4px solid #666666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tech-tag {
+  background: #f5f5f5;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.implementation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.challenges, .solutions {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.challenges h3, .solutions h3 {
+  color: #000000;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.project-screenshots {
+  margin: 2rem 0;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.screenshot-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.screenshot-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.screenshot-caption {
+  padding: 1rem;
+  margin: 0;
+  background: white;
+  color: #333333;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.screenshot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.screenshot-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.screenshot-modal img {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.github-btn {
+  background: #000000;
+  color: white;
+}
+
+.github-btn:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+.demo-btn {
+  background: #666666;
+  color: white;
+}
+
+.demo-btn:hover {
+  background: #444444;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .project-details {
+    padding: 1rem;
+  }
+  
+  .project-details section {
+    padding: 1.5rem;
+  }
+  
+  .implementation {
+    grid-template-columns: 1fr;
+  }
+  
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+} 
