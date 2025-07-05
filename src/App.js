@@ -259,7 +259,7 @@ const Portfolio = () => {
         </Routes>
 
         <footer>
-          <p>Connect: <a href="https://www.linkedin.com/in/maherakhatoon/">LinkedIn</a> | Email</p>
+          <p>Connect: <a href="https://www.linkedin.com/in/maherakhatoon/">LinkedIn</a></p>
         </footer>
       </div>
     </Router>
