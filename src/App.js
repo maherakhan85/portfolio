@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./styles.css"; // Ensure styles are applied
-import './Untitled.png';  // Add this import
+import "./styles.css";
+import './Untitled.png';  
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ProjectDetails from './components/ProjectDetails';
 
