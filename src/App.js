@@ -8,6 +8,23 @@ const Portfolio = () => {
   // Work Experience Data
   const experiences = [
     {
+      title: "Web Developer Intern",
+      company: "PROJXON",
+      duration: "October 2025 – Present",
+      shortDescription: "Designed, developed, and maintained dynamic web applications using React.js, Next.js, SQL, WordPress, and REST APIs while optimizing performance and reliability through debugging and collaboration.",
+      fullDescription: <ul>
+        <li>Designed, coded, tested, and maintained web applications using React.js, Next.js, and SQL databases. </li>
+        <li> Assist in building and maintaining WordPress-based websites and web applications, ensuring smooth back-end functionality and performance.</li>
+        <li> Work with REST APIs to integrate external data and manage databases to support dynamic, data driven web experiences.</li>
+        <li> Support debugging, server management, and code documentation to enhance the overall functionality and reliability of web applications.</li>
+        <li> Analyzed existing program logic to identify bugs and performance issues, modifying code to improve efficiency and reliability.</li>
+        <li> Collaborated closely with team members to assess usability requirements and technical specifications.</li>
+        <li> Performed diagnostic testing to detect syntax and logic errors and implemented fixes.</li>
+        <li> Maintained and enhanced existing applications while contributing to new feature development.</li>
+        <li> Work independently on assigned tasks while reporting progress during regular team meetings.</li>
+      </ul>,
+    },
+    {
       title: "Computer Lab Assistant",
       company: "Fairleigh Dickinson University, Teaneck, NJ",
       duration: "August 2024 – May 2025",
@@ -31,7 +48,7 @@ const Portfolio = () => {
     },
     {
       title: "AWS Cloud Intern",
-      company: "AICTE, Hyderabad, India",
+      company: "AICTE",
       duration: "October 2021 – December 2021",
       shortDescription: "Gained hands-on experience with AWS services & cloud deployment.",
       fullDescription: 
