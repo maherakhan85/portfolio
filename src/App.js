@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import './Untitled.png';  
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -11,28 +11,33 @@ const Portfolio = () => {
       title: "Web Developer Intern",
       company: "PROJXON",
       duration: "October 2025 – Present",
-      shortDescription: "Designed, developed, and maintained dynamic web applications using React.js, Next.js, SQL, WordPress, and REST APIs while optimizing performance and reliability through debugging and collaboration.",
+      shortDescription: "Designed, coded, tested, and maintained web applications using React.js, Next.js, JavaScript, and SQL databases.",
       fullDescription: <ul>
-        <li>Designed, coded, tested, and maintained web applications using React.js, Next.js, and SQL databases. </li>
-        <li> Assist in building and maintaining WordPress-based websites and web applications, ensuring smooth back-end functionality and performance.</li>
-        <li> Work with REST APIs to integrate external data and manage databases to support dynamic, data driven web experiences.</li>
-        <li> Support debugging, server management, and code documentation to enhance the overall functionality and reliability of web applications.</li>
-        <li> Analyzed existing program logic to identify bugs and performance issues, modifying code to improve efficiency and reliability.</li>
-        <li> Collaborated closely with team members to assess usability requirements and technical specifications.</li>
-        <li> Performed diagnostic testing to detect syntax and logic errors and implemented fixes.</li>
-        <li> Maintained and enhanced existing applications while contributing to new feature development.</li>
-        <li> Work independently on assigned tasks while reporting progress during regular team meetings.</li>
+        <li>Designed, coded, tested, and maintained web applications using React.js, Next.js, JavaScript, and SQL databases.</li>
+        <li>Supported the implementation and maintenance of internal and client-facing web systems, ensuring functional accuracy, performance, and reliability.</li>
+        <li>Worked closely with developers and stakeholders to configure features, validate requirements, and support customizations.</li>
+        <li>Integrated REST APIs to manage external data sources and enable dynamic, data-driven web experiences.</li>
+        <li>Created and executed test cases to verify system functionality prior to release and deployment.</li>
+        <li>Assisted with bug tracking, troubleshooting, and issue resolution during and after deployments.</li>
+        <li>Analyzed existing program logic to identify bugs and performance issues, modifying code to improve efficiency.</li>
+        <li>Collaborated with cross-functional teams to ensure systems met business, usability, and technical requirements.</li>
+        <li>Documented system changes and supported rollout communication for internal stakeholders.</li>
+        <li>Worked independently on assigned tasks while providing regular progress updates during team meetings.</li>
       </ul>,
     },
     {
       title: "Computer Lab Assistant",
       company: "Fairleigh Dickinson University, Teaneck, NJ",
       duration: "August 2024 – May 2025",
-      shortDescription: "Provided tech support & maintained lab systems for students & faculty.",
+      shortDescription: "Provided technical support to students and faculty in the computer lab, troubleshooting hardware and software issues.",
       fullDescription: <ul>
-        <li>Provided technical support to 100+ students and faculty, troubleshooting hardware/software issues to minimize downtime.</li>
-        <li>Installed, configured, and maintained lab systems and specialized software, ensuring 99.9% system uptime.</li>
-        <li>Guided students in using specialized software, including programming tools, data analysis platforms, and design applications, offering hands-on support and troubleshooting.</li>
+        <li>Provided technical support to students and faculty in the computer lab, troubleshooting hardware and software issues.</li>
+        <li>Assisted with the installation, configuration, and maintenance of lab systems and software.</li>
+        <li>Enforced lab usage policies to ensure a secure and productive learning environment.</li>
+        <li>Supported students in using specialized software, including programming tools, data analysis platforms, and design applications.</li>
+        <li>Maintained and updated lab computers to ensure peak performance and reliability.</li>
+        <li>Provided guidance and training to students on proper use of technology and available resources.</li>
+        <li>Assisted users via remote support and in-person troubleshooting, improving system uptime and user satisfaction.</li>
       </ul>,
     },
     {
@@ -61,11 +66,24 @@ const Portfolio = () => {
     },
   ];
 
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [modalExperienceIndex, setModalExperienceIndex] = useState(null);
 
-  const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  useEffect(() => {
+    if (modalExperienceIndex === null) return;
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setModalExperienceIndex(null);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [modalExperienceIndex]);
+
+  const openExperienceModal = (index) => setModalExperienceIndex(index);
+
+  const closeExperienceModal = () => setModalExperienceIndex(null);
 
   return (
     <Router>
@@ -98,7 +116,7 @@ const Portfolio = () => {
                   </div>
                   <div className="intro-right">
                     <h2>Mahera Khatoon</h2>
-                    <p>Software Engineer | Full-Stack Developer | Cloud Enthusiast</p>
+                    <p>Software Engineer | Full-Stack Developer | Implementation Specialist | Cloud Enthusiast</p>
                     <p>🌐 Turning dreams into URLs and code into beautiful user experiences.</p>
                     <a href="/maheraresum.pdf" target="_blank" className="btn" rel="noopener noreferrer">View CV</a>
                     <div className="contact-info">
@@ -113,7 +131,7 @@ const Portfolio = () => {
               <section id="about">
                 <div className="about-card">
                   <h2>About Me</h2>
-                  <p>I'm <strong>Mahera Khatoon</strong>, a <strong>Software Engineer</strong> specializing in full-stack development and cloud solutions. I have hands-on experience with technologies like React.js, Node.js, ASP.NET Core, C#, MySQL, Docker, and AWS (EC2, Lambda, CloudFormation).</p>
+                  <p>I'm <strong>Mahera Khatoon</strong>, a <strong>Software Engineer</strong> and <strong>Implementation Specialist</strong> focused on turning product and technical plans into reliable, production-ready software. I specialize in full-stack development and cloud solutions, with hands-on experience across React.js, Node.js, ASP.NET Core, C#, MySQL, Docker, and AWS (EC2, Lambda, CloudFormation).</p>
                   <p>My background includes roles as a Graduate Teaching Assistant and AWS Cloud Intern, where I focused on building scalable architectures, writing clean and maintainable code, and working in agile development environments.</p>
                   <p>I'm passionate about solving real-world problems through efficient, user-focused software solutions and continuous learning in modern tech ecosystems.</p>
                   <p><strong>Education:</strong> Fairleigh Dickinson University, Teaneck, NJ – M.S. Computer Science, GPA: 3.7</p>
@@ -194,18 +212,59 @@ const Portfolio = () => {
                 <h2>Work Experience</h2>
                 <div className="experience-container">
                   {experiences.map((exp, index) => (
-                    <div className="experience-card" key={index}>
-                      <h3>{exp.title}</h3>
-                      <h4>{exp.company}</h4>
-                      <p>{exp.duration}</p>
-                      <p>{exp.shortDescription}</p>
-                      {expandedIndex === index && <p className="full-description">{exp.fullDescription}</p>}
-                      <button className="more-btn" onClick={() => toggleExpand(index)}>
-                        {expandedIndex === index ? "Show Less" : "More"}
+                    <div
+                      key={index}
+                      className={`experience-card${modalExperienceIndex === index ? " experience-card--selected" : ""}`}
+                    >
+                      <div className="experience-card__content">
+                        <h3>{exp.title}</h3>
+                        <h4>{exp.company}</h4>
+                        <p className="experience-card__duration">{exp.duration}</p>
+                      </div>
+                      <button
+                        type="button"
+                        className="experience-card__btn"
+                        aria-haspopup="dialog"
+                        aria-expanded={modalExperienceIndex === index}
+                        aria-label={`View details for ${exp.title} at ${exp.company}`}
+                        onClick={() => openExperienceModal(index)}
+                      >
+                        View details
                       </button>
                     </div>
                   ))}
                 </div>
+
+                {modalExperienceIndex !== null && experiences[modalExperienceIndex] && (
+                  <div
+                    className="experience-modal-backdrop"
+                    onClick={closeExperienceModal}
+                    role="presentation"
+                  >
+                    <div
+                      className="experience-modal"
+                      role="dialog"
+                      aria-modal="true"
+                      aria-labelledby="experience-modal-title"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button
+                        type="button"
+                        className="experience-modal__close"
+                        onClick={closeExperienceModal}
+                        aria-label="Close"
+                      >
+                        ×
+                      </button>
+                      <h3 id="experience-modal-title">{experiences[modalExperienceIndex].title}</h3>
+                      <p className="experience-modal__company">{experiences[modalExperienceIndex].company}</p>
+                      <p className="experience-modal__duration">{experiences[modalExperienceIndex].duration}</p>
+                      <div className="experience-modal__body">
+                        {experiences[modalExperienceIndex].fullDescription}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </section>
 
               {/* Volunteering Section */}
